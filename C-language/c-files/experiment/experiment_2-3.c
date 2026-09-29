@@ -1,4 +1,3 @@
-//สตั้2-3 
 #include <stdio.h>
 void main(){  
 char c1='a',c2='b',c3='c',c4='\101',c5='\116';
