@@ -15,6 +15,7 @@ import re
 import sys
 
 import docx
+from docx.oxml.ns import qn
 from docx.shared import Pt
 
 HEADINGS = ('实验目的', '实验内容和要求', '主要仪器设备', '实验原理', '源程序',
@@ -42,6 +43,14 @@ def main(src, dst):
             is_heading = bool(re.match(r'^[0-9]+[．.]\s*实验内容', text.replace('\t', '')))
             if is_heading:
                 set_space(para, 15.6, 7.8)
+                ppr = para._p.get_or_add_pPr()
+                sp = ppr.find(qn('w:spacing'))
+                if sp is None:
+                    from docx.oxml import OxmlElement
+                    sp = OxmlElement('w:spacing')
+                    ppr.append(sp)
+                sp.set(qn('w:beforeLines'), '100')
+                sp.set(qn('w:afterLines'), '50')
             else:
                 set_space(para, 7.8, 7.8)
         else:
