@@ -11,6 +11,6 @@ double fun(int m) {
 
 int main() {
 	int n=5;
-	printf("\nThe rusult is %lf\n",fun(n));
+	printf("\nThe result is %lf\n",fun(n));
 	return 0;
 }

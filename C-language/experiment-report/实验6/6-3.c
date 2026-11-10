@@ -7,7 +7,7 @@ void f(char* a,int length,int *pletter,int *pnum,int *pspace,int *pother) {
 		int x=a[i];
 		if ((x>='a'&&x<='z')||(x>='A'&&x<='Z')) {
 			(*pletter)++;
-		} else if (x>='0'||x<='9') {
+		} else if (x>='0'&&x<='9') {
 			(*pnum)++;
 		} else if (x==' ') {
 			(*pspace)++;
